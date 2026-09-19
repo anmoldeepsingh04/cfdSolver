@@ -1,2 +1,2 @@
 # cfdSolver
-self implemented a CFD solver from scratch
+Self-implemented a CFD solver from scratch
