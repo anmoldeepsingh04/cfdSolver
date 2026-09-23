@@ -79,5 +79,50 @@ $$
 + \nabla \cdot (\rho \mathbf{u} \otimes \mathbf{u} - p \mathbf{I}) = 0
 $$
 
+Assuming that the velocity vector $\mathbf{u} = [u,v,w]^T$, the non-linear term with the dyadic product (similar to outer product of two vectors) can be written as:
 
+$$
+\rho \mathbf{u} \otimes \mathbf{u} = \rho
 
+\begin{pmatrix}
+u \\ v \\ w
+\end{pmatrix}
+
+\begin{pmatrix}
+u & v & w
+\end{pmatrix}
+
+=
+
+\begin{pmatrix}
+\rho u^2 & \rho uv & \rho uw \\
+\rho uv & \rho v^2 & \rho vw \\
+\rho uw & \rho vw & \rho w^2
+\end{pmatrix}
+$$
+which is a second order tensor (or a 2D matrix). 
+
+We have three equations for the three velocity components, but we have a total of five unknowns $\begin{pmatrix} u,v,w,p, \rho \end{pmatrix}$, this, we need two additional equations to solve this system.
+
+The first equation comes from the mass conservation, which gives us the density, $ \rho $:
+
+$$
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \textbf u) = 0
+$$
+
+Now, we only need one more equation to solve for the pressure. But, we don't have a conservation law for pressure, so we use some thermodynamic relations to get the pressure.
+
+We know that the total energy is the sum of kinetic and potential energy,
+
+$$
+\implies E = \text{Kinetic Energy} + \text{Potential Energy} = \rho e + \frac{1}{2}\rho \textbf{u}^2
+$$
+
+and the fact that the total energy of any isolated system is always conserved gives us an equation for pressure:
+
+$$
+\frac{\partial E}{\partial t} + \nabla \cdot (E + p) = 0
+$$
+This equation is valid only for an inviscid flow.
+
+But in the process of writing this relation, we introduced another unknown, $ E $, for which, we use some thermodynamic relations to get another equation. Thus, we have $6$ equations and $6$ unknowns, which will close the system.
